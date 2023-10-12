@@ -1,0 +1,756 @@
+@mixin transition($element: all, $time: .25s, $function: linear) {
+  transition: $time $function;
+  transition-property: #{$element};
+}
+
+@mixin transition-cubic($time: .25s, $function: cubic-bezier(1, 0, 0, 1), $element: all) {
+  transition: $element $time $function;
+}
+
+//example convertVH:
+//min-height: calc(#{convertVH(100)} - 20px);
+//height: calc(#{convertVH(100)} / 2 + 40px);
+@function convertVH($val) {
+  @return calc(var(--vh, 1vh) * #{$val});
+}
+
+//example heightVH:
+//@include heightVH(100, 'min');
+//@include heightVH(80, 'max');
+//@include heightVH(100);
+@mixin heightVH($val: 100, $pre: '') {
+  $vh: calc(var(--vh, 1vh) * #{$val});
+
+  @if $pre !='' {
+    #{$pre}-height: $val+vh;
+    #{$pre}-height: $vh;
+  }
+
+  @else {
+    height: $val+vh;
+    height: $vh;
+  }
+}
+
+@mixin scrollbar($width: 4px, $rail-color: $border-silver, $bar-color: $black) {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: $bar-color;
+  overflow: auto;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    // background-color: $rail-color;
+    width: $width;
+    // height: 300px;
+
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $rail-color;
+  }
+
+  &::-webkit-scrollbar-thumb:vertical {
+    background-color: $bar-color;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    background-color: $bar-color;
+  }
+}
+
+@mixin scrollToAllTopic {
+  body.lightTheme & {
+    @include scrollbar;
+  }
+
+  body.darkTheme & {
+    @include scrollbar(4px, $border-dark, $border-silver);
+  }
+
+  body.gradienThemeViolet & {
+    @include scrollbar;
+  }
+
+  body.gradienThemeOrange & {
+    @include scrollbar(4px, $border-dark, $border-silver);
+  }
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+// @include placeholder {
+//     color: green;
+// }
+@mixin hoverCard {
+  body.lightTheme & {
+    @media (hover:hover) {
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  body.darkTheme & {
+    @media (hover:hover) {
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  body.gradienThemeViolet & {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid;
+      border-image: $violet;
+      border-image-slice: 1;
+      opacity: 0;
+      background-color: transparent;
+      transition: opacity .3s ease;
+      z-index: 1;
+    }
+
+    @media (hover:hover) {
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  body.gradienThemeOrange & {
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid;
+      border-image: $orange;
+      border-image-slice: 1;
+      opacity: 0;
+      background-color: transparent;
+      transition: opacity .3s ease;
+      z-index: 1;
+    }
+
+    @media (hover:hover) {
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin textColorOpacity {
+  body.lightTheme & {
+    color: $text-color;
+    opacity: .5;
+  }
+
+  body.darkTheme & {
+    color: $white-color;
+    opacity: .5;
+  }
+
+  body.gradienThemeViolet & {
+    color: $text-color;
+    opacity: .5;
+  }
+
+  body.gradienThemeOrange & {
+    color: $white-color;
+    opacity: .5;
+  }
+}
+
+@mixin color-arrow {
+  body.lightTheme & {
+    color: $text-color;
+  }
+
+  body.darkTheme & {
+    color: $white-color;
+  }
+
+  body.gradienThemeViolet & {
+    & svg {
+      fill: url(#paint0_linear_247_1647);
+    }
+  }
+
+  body.gradienThemeOrange & {
+    & svg {
+      fill: url(#paint0_linear_251_876);
+    }
+  }
+}
+
+@mixin color-bullet {
+  body.lightTheme & {
+    background: $border-silver;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $text-color;
+    }
+
+  }
+
+  body.darkTheme & {
+    background: $border-dark;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $white-color;
+    }
+
+  }
+
+  body.gradienThemeViolet & {
+    background: $border-silver;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-image: $violet;
+    }
+  }
+
+  body.gradienThemeOrange & {
+    background: $border-dark;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-image: $orange;
+    }
+  }
+}
+
+@mixin projects-square-gradient {
+  body.gradienThemeViolet & {
+    &.active {
+      border-bottom: 2px solid;
+      border-image: $violet;
+      border-image-slice: 1;
+
+      svg {
+        fill: url(#paint0_linear_615_1388);
+      }
+    }
+
+  }
+
+  body.gradienThemeOrange & {
+    &.active {
+      border-bottom: 2px solid;
+      border-image: $orange;
+      border-image-slice: 1;
+
+      svg {
+        fill: url(#paint0_linear_615_1581);
+      }
+    }
+  }
+}
+
+@mixin projects-column-gradient {
+
+  body.gradienThemeViolet & {
+    &.active {
+      border-bottom: 2px solid;
+      border-image: $violet;
+      border-image-slice: 1;
+
+      svg {
+        path {
+          fill: url(#paint0_linear_615_1462);
+        }
+
+        rect {
+          fill: url(#paint1_linear_615_1462);
+        }
+      }
+    }
+  }
+
+  body.gradienThemeOrange & {
+    &.active {
+      border-bottom: 2px solid;
+      border-image: $orange;
+      border-image-slice: 1;
+
+      svg {
+        path {
+          fill: url(#paint0_linear_615_1628);
+        }
+
+        rect {
+          fill: url(#paint1_linear_615_1628);
+        }
+      }
+    }
+  }
+}
+
+@mixin projects-tile {
+
+  body.lightTheme & {
+    border-bottom: 1px solid rgba($color: $black, $alpha: .1);
+
+    &.active {
+      border-color: $text-color;
+      border-bottom-width: 2px;
+    }
+  }
+
+
+  body.darkTheme & {
+    border-bottom: 1px solid rgba($white-color, .1);
+
+    &.active {
+      border-color: $white-color;
+      border-bottom-width: 2px;
+    }
+
+    & {
+      svg {
+        path {
+          fill: $white-color;
+        }
+      }
+    }
+  }
+
+  body.gradienThemeViolet & {
+    border-bottom: 1px solid rgba($color: $black, $alpha: .1);
+  }
+
+  body.gradienThemeOrange & {
+    border-bottom: 1px solid rgba($white-color, .1);
+  }
+}
+
+@mixin colorBtnBehance {
+  body.lightTheme & {
+    border-color: $text-color;
+
+    & span {
+      color: $text-color;
+    }
+  }
+
+  body.darkTheme & {
+    border-color: $white-color;
+
+    & span {
+      color: $white-color;
+    }
+  }
+
+  body.gradienThemeViolet & {
+    border-image: $violet;
+    border-image-slice: 1;
+
+    & span {
+      color: transparent;
+      -webkit-background-clip: text;
+      background-image: $violet;
+    }
+
+    & svg {
+      fill: url(#paint0_linear_763_572);
+    }
+  }
+
+  body.gradienThemeOrange & {
+    border-image: $orange;
+    border-image-slice: 1;
+
+    & span {
+      color: transparent;
+      -webkit-background-clip: text;
+      background-image: $orange;
+    }
+
+    & svg {
+      fill: url(#paint0_linear_763_520);
+    }
+  }
+}
+
+@mixin border {
+  body.lightTheme & {
+    border: 1px solid $text-color;
+  }
+
+  body.darkTheme & {
+    border: 1px solid $white-color;
+  }
+
+  body.gradienThemeViolet & {
+    border: 1px solid $text-color;
+  }
+
+  body.gradienThemeOrange & {
+    border: 1px solid $white-color;
+  }
+}
+
+@mixin hoverLinkHeader {
+  body.lightTheme & {
+    position: relative;
+
+    &::after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $black;
+      content: "";
+      transition: width 0.3s ease-out;
+    }
+
+    @media(hover:hover) {
+
+      &:hover:after,
+      &:focus:after {
+        width: 100%;
+      }
+    }
+  }
+
+  body.darkTheme & {
+    position: relative;
+
+    &::after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $white-color;
+      content: "";
+      transition: width 0.3s ease-out;
+    }
+
+    @media(hover:hover) {
+
+      &:hover:after,
+      &:focus:after {
+        width: 100%;
+      }
+    }
+  }
+
+  body.gradienThemeViolet & {
+    @media(hover:hover) {
+      &:hover {
+        background-image: $violet;
+        color: transparent;
+        -webkit-background-clip: text;
+        opacity: .7;
+      }
+
+    }
+  }
+
+  body.gradienThemeOrange & {
+    @media (hover:hover) {
+      &:hover {
+        background-image: $orange;
+        color: transparent;
+        -webkit-background-clip: text;
+        opacity: .7;
+      }
+    }
+
+  }
+}
+
+@mixin projects-link {
+  body.lightTheme & {
+    text-decoration: underline;
+  }
+
+  body.darkTheme & {
+    text-decoration: underline;
+  }
+
+  body.gradienThemeViolet & {
+    background-image: $violet;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  body.gradienThemeOrange & {
+    background-image: $orange;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+}
+
+@mixin active-link {
+  body.lightTheme & {
+    text-decoration: line-through;
+  }
+
+  body.darkTheme & {
+    text-decoration: line-through;
+  }
+
+  body.gradienThemeViolet & {
+    background-image: $violet;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  body.gradienThemeOrange & {
+    background-image: $orange;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+}
+
+@mixin backgroundFooter {
+  body.lightTheme & {
+    background-color: rgba($text-color, .7);
+  }
+
+  body.darkTheme & {
+    background-color: rgba($white-color, .7);
+  }
+
+  body.gradienThemeViolet & {
+    background: rgba($white-color, .7);
+  }
+
+  body.gradienThemeOrange & {
+    background: rgba($text-color, .7);
+
+  }
+}
+
+@mixin text-color-footer {
+  body.lightTheme & {
+    color: $white-color;
+  }
+
+  body.darkTheme & {
+    color: $text-color;
+  }
+
+  body.gradienThemeViolet & {
+    color: $white-color;
+  }
+
+  body.gradienThemeOrange & {
+    color: $text-color;
+  }
+}
+
+@mixin text-color() {
+  body.lightTheme & {
+    color: $text-color;
+  }
+
+  body.darkTheme & {
+    color: $white-color;
+  }
+
+  body.gradienThemeViolet & {
+    background-image: $violet;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  body.gradienThemeOrange & {
+    background-image: $orange;
+    color: transparent;
+    -webkit-background-clip: text;
+  }
+}
+
+@mixin backgroundHeaderList {
+  .lightTheme & {
+    background: $white-color;
+  }
+
+  .darkTheme & {
+    background: $text-color;
+
+    &::before {
+      background-color: $border-dark;
+    }
+  }
+
+  .gradienThemeViolet & {
+    background: $white-color;
+  }
+
+  .gradienThemeOrange & {
+    background: $text-color;
+
+    &::before {
+      background-color: $border-dark;
+    }
+  }
+}
+
+@mixin color-border {
+  .lightTheme & {
+    border-color: $border-silver;
+  }
+
+  .darkTheme & {
+    border-color: $border-dark;
+  }
+
+  .gradienThemeViolet & {
+    border-color: $border-silver;
+  }
+
+  .gradienThemeOrange & {
+    border-color: $border-dark;
+  }
+}
+
+@mixin background() {
+  .lightTheme & {
+    background: $white-color;
+  }
+
+  .darkTheme & {
+    background: $text-color;
+  }
+
+  .gradienThemeViolet & {
+    background: $white-color;
+  }
+
+  .gradienThemeOrange & {
+    background: $text-color;
+  }
+}
+
+@mixin backgroundBody() {
+  &.lightTheme {
+    background: $white-color;
+    color: $text-color;
+  }
+
+  &.darkTheme {
+    background: $text-color;
+    color: $white-color;
+  }
+
+  &.gradienThemeViolet {
+    background: $white-color;
+    color: $text-color;
+  }
+
+  &.gradienThemeOrange {
+    background: $text-color;
+    color: $white-color;
+  }
+}
+
+@mixin backgroundModal() {
+  .lightTheme & {
+    background: $white-color;
+    color: $text-color;
+  }
+
+  .darkTheme & {
+    background: $text-color;
+    color: $white-color;
+  }
+
+  .gradienThemeViolet & {
+    background: $white-color;
+    color: $text-color;
+  }
+
+  .gradienThemeOrange & {
+    background: $text-color;
+    color: $white-color;
+  }
+}
+
+@mixin backgroundEl() {
+  body.lightTheme & {
+    background: $text-color;
+  }
+
+  body.darkTheme & {
+    background: $white-color;
+  }
+
+  body.gradienThemeViolet & {
+    background: $violet;
+  }
+
+  body.gradienThemeOrange & {
+    background: $orange;
+  }
+}
+
+@mixin BgPseudoElement {
+  body.lightTheme & {
+    background: $border-silver;
+  }
+
+  body.darkTheme & {
+    background: $border-dark;
+  }
+
+  body.gradienThemeViolet & {
+    background: $border-silver;
+  }
+
+  body.gradienThemeOrange & {
+    background: $border-dark;
+  }
+}

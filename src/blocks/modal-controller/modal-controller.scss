@@ -1,0 +1,36 @@
+.controller {
+  display: none;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 505;
+  // .modal-project__back {
+  //   position: static;
+  //   border-top: 1px solid $border-silver;
+  //   border-bottom: none;
+  // }
+  .project-slide__navigation {
+    position: static;
+    display: flex;
+  }
+
+  .img-arrow_black {display: none;}
+}
+@media (max-width: $mobile-big) {
+  .controller .project-slide__navigation {
+    display: none;
+  }
+}
+@media (max-width: $mobile-sm) {
+  .controller .modal-project__back p{
+    font-size: 12px;
+  } 
+}
+.bodyBlack {
+  .controller {
+    // .modal-project__back {border-color: $border-dark;}
+    .project-slide__prev,
+    .project-slide__next {path {fill: url(#paint0_linear_247_6666);}}
+  }
+}

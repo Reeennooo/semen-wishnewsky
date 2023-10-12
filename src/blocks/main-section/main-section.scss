@@ -1,0 +1,118 @@
+.main-section {
+  padding-top: 179px;
+
+  &__title {
+    font-size: 56px;
+    line-height: 120%;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+
+    & span {
+      transition: color 0.3s;
+      @include text-color;
+    }
+  }
+
+  &__greetings {
+    display: flex;
+    gap: 24px;
+    line-height: 135%;
+    align-items: center;
+
+  }
+
+  &__image {
+    width: 96px;
+    height: 96px;
+    background: url("../img/main-section/fase.png") no-repeat;
+    background-size: cover;
+    flex-shrink: 0;
+
+    &.main-section__emoji {
+      background: url("../img/main-section/cherry.png") no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__text {
+    opacity: 0.5;
+    padding-top: 2px;
+  }
+
+  @media (max-width: $tablet) {
+    padding-top: 119px;
+
+    &__title {
+      font-size: 46px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding-top: 19px;
+  }
+
+  @media (max-width: $mobile-big) {
+    &__title {
+      font-size: 36px;
+    }
+
+  }
+
+  @media (max-width: $mobile) {
+    &__image {
+      width: 48px;
+      height: 48px;
+      align-self: flex-start;
+    }
+
+    &__greetings {
+      gap: 16px;
+      line-height: 24px;
+    }
+  }
+
+  @media (max-width: 414px) {
+    &__title {
+      margin-bottom: 23px;
+      max-width: 330px;
+    }
+  }
+
+  @media (min-width: 360.99px) {
+    &__text br {
+      display: none;
+    }
+  }
+
+  @media (max-width: 359px) {
+    padding-top: 0px;
+
+    &__title {
+      font-size: 30px;
+
+    }
+
+    &__text br {
+      display: none;
+    }
+  }
+}
+
+// .bodyBlack {
+//   & .main-section {
+//     &__title {
+//       &::before {
+//         background: $border-dark;
+//       }
+
+//       & span {
+//         -webkit-background-clip: text;
+//         background-image: $orange;
+//       }
+//     }
+
+
+//   }
+// }

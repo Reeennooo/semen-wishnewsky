@@ -1,0 +1,14 @@
+extends ../pug/layout.pug
+
+block meta
+  title Проекты
+  meta(name='description' content='')
+  - var headerDopLinkCls = "active-link active-link__projects"
+//-block append head
+  link(rel='stylesheet' href='css/some.css')
+
+//-block header
+
+block content
+  include ../blocks/projects/projects
+  include ../blocks/any-projects/any-projects

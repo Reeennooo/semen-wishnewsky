@@ -1,0 +1,15 @@
+extends ../pug/layout.pug
+
+block meta
+  title Про меня
+  meta(name='description' content='')
+  - var headerDopLinkCls = "active-link active-link__about"
+//-block append head
+  link(rel='stylesheet' href='css/some.css')
+
+//-block header
+
+block content
+  include ../blocks/my-experience/my-experience
+  include ../blocks/previous-jobs/previous-jobs
+  include ../blocks/how-work/how-work

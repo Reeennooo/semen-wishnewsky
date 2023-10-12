@@ -1,0 +1,7 @@
+mixin small-card(src, date, title)
+  .small-card.initial-hidden
+    .small-card__img
+      img(src=src, alt="Фото карточки")
+    .small-card__text
+      .small-card__date=date
+      .small-card__title!=title

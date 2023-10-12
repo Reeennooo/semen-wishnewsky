@@ -1,0 +1,129 @@
+.my-experience {
+  padding-top: 179px;
+  margin-bottom: 72px;
+
+  &__title {
+    margin-bottom: 32px;
+    font-size: 56px;
+    line-height: 120%;
+    text-transform: uppercase;
+    // position: relative;
+    transition-property: color;
+    letter-spacing: 0.01em;
+
+    // &::before {
+    //   content: "";
+    //   height: 1px;
+    //   width: 100vw;
+    //   background: $border-silver;
+    //   position: absolute;
+    //   z-index: -1;
+    //   bottom: 14px;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   transition: all .3s;
+    // }
+
+    & span {
+      @include text-color;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    padding-top: 119px;
+
+    &__title {
+      font-size: 46px;
+
+      // &::before {
+      //   bottom: 12px;
+      // }
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding-top: 19px;
+  }
+
+  @media (max-width: $mobile-big) {
+    margin-bottom: 37px;
+
+    & br {
+      display: none;
+    }
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 16px;
+
+      // &::before {
+      //   bottom: 9px;
+      // }
+    }
+  }
+
+  @media (max-width: 359px) {
+    &__title {
+      font-size: 30px;
+
+      // &::before {
+      //   bottom: 8px;
+      // }
+    }
+  }
+}
+
+.keyword-experienc {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  line-height: 135%;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 7.5px;
+
+    & li {
+      @include border;
+      transition: border .5s;
+      padding: 1px 7.5px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    line-height: 24px;
+
+    &__list {
+      gap: 3.5px;
+
+      & li {
+        padding: 1px 7.5px;
+      }
+    }
+  }
+}
+
+.bodyBlack {
+  & .keyword-experienc {
+    li {
+      border-color: $white-color;
+    }
+  }
+
+  & .my-experience {
+    // &__title::before {
+    //   background: $border-dark;
+    // }
+
+    & span {
+      -webkit-background-clip: text;
+      background-image: $orange;
+    }
+  }
+}

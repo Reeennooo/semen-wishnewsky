@@ -1,0 +1,127 @@
+.contacts-section {
+  padding-top: 179px;
+
+  &__title {
+    font-size: 56px;
+    line-height: 120%;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    // position: relative;
+    letter-spacing: 0.01em;
+
+    // &::before {
+    //   content: "";
+    //   height: 1px;
+    //   width: 100vw;
+    //   background: $border-silver;
+    //   position: absolute;
+    //   z-index: -1;
+    //   bottom: 14px;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   transition: all .3s;
+    // }
+
+    & span {
+      @include text-color;
+    }
+  }
+
+  &__items {
+    display: flex;
+    gap: 72px;
+  }
+
+  &__item {
+    font-size: 18px;
+    line-height: 135%;
+    flex-basis: 320px;
+  }
+
+  &__text {
+    &_opacity {
+      opacity: .5;
+    }
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &__items {
+      justify-content: space-between;
+      gap: 15px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    padding-top: 119px;
+
+    &__title {
+      font-size: 46px;
+
+      // &::before {
+      //   bottom: 12px;
+      // }
+    }
+  }
+
+  @media (max-width: 800px) {
+    padding-top: 19px;
+
+    &__items {
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    &__item {
+      flex-basis: auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: $mobile-big) {
+    &__title {
+      font-size: 36px;
+      margin-bottom: 24px;
+
+      // &::before {
+      //   bottom: 9px;
+      // }
+    }
+  }
+
+  @media (max-width: $mobile-sm) {
+    &__items {
+      gap: 24px;
+      text-align: start;
+    }
+  }
+
+  @media (max-width: 359px) {
+    &__title {
+      font-size: 30px;
+      // &::before {
+      //   bottom: 8px;
+      // }
+    }
+  }
+}
+
+.bodyBlack {
+  & .contacts-section {
+    // &__title::before {
+    //   background: $border-dark;
+    // }
+
+    & span {
+      -webkit-background-clip: text;
+      background-image: $orange;
+    }
+  }
+}

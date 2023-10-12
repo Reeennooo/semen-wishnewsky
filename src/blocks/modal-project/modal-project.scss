@@ -1,0 +1,138 @@
+.modal-project {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(47, 47, 47, .8);
+  backdrop-filter: blur(10px);
+  overflow: auto;
+  transition: .3s ease;
+  transition-property: opacity, visibility, z-index;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 90px;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 500;
+  }
+
+  &__content {
+    max-width: 1080px;
+    width: 100%;
+    @include backgroundModal;
+  }
+
+  &__back {
+    @include background;
+    @include color-border;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-color: transparent;
+    // border-top: 1px solid #E7E7E7;
+    // border-left: 1px solid #E7E7E7;
+    // border-bottom: 1px solid $border-silver;
+    cursor: pointer;
+
+    // position: relative;
+    // &::after {
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: -1px;
+    //   content: "";
+    //   display: block;
+    //   width: 100%;
+    //   height: 1px;
+    //   background-color: $border-silver;
+    // }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__back.adaptive {
+    display: none;
+  }
+}
+
+
+.bodyBlack {
+  .modal-project__back {
+    background-color: $black;
+    border-color: $br-black;
+    position: relative;
+    z-index: 11;
+    // &::after {
+    //   background-color: $br-black;
+    //   z-index: 2;
+    // }
+  }
+
+  .modal-project__content {
+    background-color: transparent;
+  }
+
+}
+
+@media(max-width: $tablet) {
+  .modal-project {
+    padding: 40px 90px;
+    align-items: flex-start;
+
+    &__content {
+      overflow: auto;
+    }
+
+    &__back {
+      border-left: none;
+    }
+
+    &__back.adaptive {
+      display: flex;
+      border-left: none;
+    }
+  }
+}
+
+@media(max-width: $mobile-big) {
+  .modal-project {
+    padding: 0;
+
+    &__content {
+      overflow: auto;
+
+      .modal-project__back {
+        display: none;
+      }
+    }
+  }
+}
+
+@media(max-width: $mobile) {
+  .modal-project {
+    padding: 0;
+
+    &__content {
+      overflow: auto;
+    }
+
+    &__back {
+      height: 46px;
+    }
+  }
+}

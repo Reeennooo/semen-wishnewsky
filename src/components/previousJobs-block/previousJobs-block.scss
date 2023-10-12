@@ -1,0 +1,57 @@
+.previousJobs-block {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  &__item {
+    display: flex;
+    gap: 24px;
+
+    & p {
+      opacity: .5;
+
+      & span {
+        &::after {
+          content: "]";
+        }
+
+        &::before {
+          content: "[";
+        }
+      }
+    }
+
+  }
+
+  &__img {
+    width: 96px;
+    height: 96px;
+  }
+
+  &__name {
+    align-self: center;
+  }
+
+  &__text {
+    & ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    gap: 18px;
+
+    &__item {
+      gap: 16px;
+    }
+
+    &__img {
+      width: 48px;
+      height: 48px;
+      align-self: flex-start;
+    }
+  }
+
+}

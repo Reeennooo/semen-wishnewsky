@@ -1,0 +1,50 @@
+- 
+  jobsBlock = [
+    {
+      animationBlock: "previous-jobs__block",
+      animationItem: "previous-jobs__item initial-hidden",
+      src: "./img/about-me/previous-jobs/alfa1.png",
+      alt: "Альфа-Инвестиции",
+      nameCompany: "Альфа-Инвестиции",
+      position: "Руководитель продукта",
+      term: " 2022 и до сих пор ",
+      text: "С командой разработали облачный сервис по хранению данных клиента. Запустили синхронизацию настроек и списка избранного между устройствами. Проектируем токенизированные продукты  и развиваем дизайн-систему.",
+      animationEl: "animate-el initial-hidden",
+    },
+      {
+        animationBlock: "previous-jobs__block",
+        animationItem: "previous-jobs__item initial-hidden",
+        src: "./img/about-me/previous-jobs/alfa2.png",
+        alt: "Альфа-Банк",
+        nameCompany: "Альфа-Банк",
+        position: "Дизайнер продукта",
+        term: " 2021–2022 ",
+        text: "Дизайнил инвестиции <br id=brPrevious360> в приложении Альфа-Банка <br id=brPrevious360> для физических лиц в составе <br id=brPrevious360> 6 продуктовых команд:",
+        list: [
+          "– Инвесткопилку",
+          "– Редизайн главного экрана раздела инвестиций",
+          "– Редизайн брокерских счетов, ИИС",
+          "– Онбординг клиента, систему маркетинговых коммуникаций",
+          "– Покупку готового инвестиционного портфеля",
+          "– Обзор банковских активов клиента",
+        ],
+        animationEl: "animate-el initial-hidden",
+    },
+      {
+        animationBlock: "previous-jobs__block",
+        animationItem: "previous-jobs__item initial-hidden",
+        src: "./img/about-me/previous-jobs/artu.png",
+        alt: "Artu-Studio",
+        nameCompany: "Artu Studio",
+        position: "Старший UX-дизайнер",
+        term: " 2020–2021 ",
+        text: "Помог запустить более 10 E-Commerce площадок с едой и одеждой. Например, магазин мерча Покраса Лампаса. <br id=brPrevious360>  Дизайнил веб-интерфейсы для банков ВТБ, Сбер, Зенит, МТС. Сделал редизайн сайта Dostaевский, развивал приложение.",
+        animationEl: "animate-el initial-hidden",
+    },
+  ]
+section.previous-jobs
+  .container 
+    .previous-jobs__title.sub-title-line где, кем и когда работал
+    .previous-jobs__body
+      each el in jobsBlock 
+        +previousJobs-block(el, el.list)

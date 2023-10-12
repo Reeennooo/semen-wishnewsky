@@ -1,0 +1,80 @@
+-
+  cards = [
+    {
+      src: "./img/cards/1.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "UMiPAY — cервис для обмена криптовалютой"
+    },
+    {
+      src: "./img/cards/2.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "My Planet — Фотоальбом для детей"
+    },
+    {
+      src: "./img/cards/3.png",
+      date: "Дизайн сайта [ 2019 ]",
+      title: "ANGRY Developers — Команда разработки финтех сервисов"
+    },
+    {
+      src: "./img/cards/4.png",
+      date: "Редизайн сайта [ 2020 ]",
+      title: "Dostaевский — cервис доставки еды"
+    },
+    {
+      src: "./img/cards/5.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "The Fathers Capital — Проект по поиску стартапов"
+    },
+    {
+      src: "./img/cards/1.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "ANGRY Developers — Команда разработки финтех сервисов"
+    },
+  ]
+section.projects
+  .container
+    h1.projects__title.title-line.animation-title.animation.initial-hidden <span>Проекты</span>,<br class="br-adaptation"> в которых<br>сделал всё или чуть-чуть
+    p.projects__subtitle.
+      От имени студий <a href="#">Artu</a> и <a href="#">Brwb</a>, а также в рамках поддержки <br> для <a href="#">Aero Agency</a>, <a   href="#">Digital TWIGA</a>, <a href="#">Marronier</a> и <a href="#">Дизайн-Бюро «Зебра»</a>
+    .projects__view
+      .projects__column.active
+        <svg width="20" height="24" viewBox="0 0 20 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0H20V20H0V0Z" />
+          <rect y="22" width="11" height="2" />
+          <defs>
+          <linearGradient id="paint0_linear_615_1462" x1="0" y1="0" x2="18.4557" y2="21.3358" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_615_1462" x1="0" y1="22" x2="0.572477" y2="25.64" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint0_linear_615_1628" x1="0" y1="0" x2="20.5397" y2="0.570547" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFA77A"/>
+          <stop offset="1" stop-color="#F2BD34"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_615_1628" x1="0" y1="22" x2="11.0477" y2="23.6878" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFA77A"/>
+          <stop offset="1" stop-color="#F2BD34"/>
+          </linearGradient>
+          </defs>
+        </svg>
+      .projects__square
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.88889 0H0V8.88889H8.88889V0ZM8.88889 11.1111H0V20H8.88889V11.1111ZM11.1111 0H20V8.88889H11.1111V0ZM20 11.1111H11.1111V20H20V11.1111Z"/>
+          <defs>
+          <linearGradient id="paint0_linear_615_1388" x1="0" y1="0" x2="18.4557" y2="21.3358" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint0_linear_615_1581" x1="0" y1="0" x2="20.5397" y2="0.570547" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFA77A"/>
+          <stop offset="1" stop-color="#F2BD34"/>
+          </linearGradient>
+          </defs>
+        </svg>
+    .projects__wrapper
+      each card in cards
+        +card(card.src, card.date, card.title)
+

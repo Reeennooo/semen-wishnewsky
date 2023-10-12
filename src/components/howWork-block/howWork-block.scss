@@ -1,0 +1,44 @@
+.howWork-block {
+  opacity: 0;
+  display: flex;
+  gap: 24px;
+
+  &:not(:last-child) {
+    margin-bottom: 23px;
+  }
+
+
+
+  &__img {
+    max-width: 96px;
+    max-height: 96px;
+  }
+
+  &__item {
+    align-self: center;
+  }
+
+  &__text {
+    padding-bottom: 1px;
+
+    &_opacity {
+      opacity: .5;
+    }
+  }
+
+  @media (max-width: $mobile) {
+
+    gap: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+
+    &__img {
+      width: 48px;
+      height: 48px;
+      align-self: flex-start;
+    }
+  }
+}

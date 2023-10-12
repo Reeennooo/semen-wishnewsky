@@ -1,0 +1,6 @@
+mixin howWork-block(data)
+  .howWork-block(class= data.animation) 
+    img(src= data.src, srcset= data.srcset, alt= data.alt).howWork-block__img
+    .howWork-block__item 
+      .howWork-block__text!= data.text 
+      .howWork-block__text_opacity!= data.textOpacity 

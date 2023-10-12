@@ -1,0 +1,15 @@
+
+mixin previousJobs-block(data, list)
+  .previousJobs-block(class= data.animationBlock)
+    .previousJobs-block__item(class= data.animationItem)
+      img(src= data.src, alt= data.alt).previousJobs-block__img
+      .previousJobs-block__name= data.nameCompany
+        p= data.position
+          <br> 
+          span= data.term
+    .previousJobs-block__text(class= data.animationEl)!= data.text
+      if list === undefined || list == false
+      else
+        ul
+          each string in list
+            li= string

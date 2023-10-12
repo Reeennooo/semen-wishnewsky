@@ -1,0 +1,79 @@
+-
+  smallCards = [
+    {
+      src: "./img/cards/1.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "UMiPAY — cервис для обмена криптовалютой"
+    },
+    {
+      src: "./img/cards/3.png",
+      date: "Дизайн сайта [ 2019 ]",
+      title: "ANGRY Developers — Команда разработки финтех сервисов"
+    },
+    {
+      src: "./img/cards/2.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "My Planet — Фотоальбом для детей"
+    },
+    {
+      src: "./img/cards/4.png",
+      date: "Дизайн сайта [ 2020 ]",
+      title: "Dostaевский — cервис доставки еды"
+    },
+    {
+      src: "./img/cards/5.png",
+      date: "Дизайн сайта [ 2018 ]",
+      title: "The Fathers Capital — Проект по поиску стартапов"
+    },
+    //- {
+    //-   src: "./img/cards/card1.png",
+    //-   date: "Дизайн сайта [ 2018 ]",
+    //-   title: "ANGRY Developers — Команда разработки финтех сервисов"
+    //- },
+  ]
+section.any-projects
+  .container
+    h1.any-projects__title.sub-title-line Проекты без деталей
+    h1.any-projects__subtitle По которым не дошли руки подготовить кейс, находятся под NDA, или макеты больше не восстановить
+    .any-projects__wrapper
+      each card in smallCards
+        +small-card(card.src, card.date, card.title)
+    .any-projects__behance
+      .any-projects__behance-text
+        p На Behance лежат несколько хорошо собранных кейсов.<br>Я и все, кто их делал, очень ими гордимся
+      a(href="https://www.behance.net/faledefler" target="_blank").any-projects__behance-btn
+        <svg width="29" height="18" viewBox="0 0 29 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.47 8.04689C11.47 8.04689 14.1593 7.84724 14.1593 4.69286C14.1593 1.53877 11.9589 0 9.17152 0H4.04109H3.89039H0V17.6257H3.89039H4.04109H9.17152C9.17152 17.6257 14.7704 17.8028 14.7704 12.4235C14.7707 12.4235 15.0148 8.04689 11.47 8.04689ZM4.04109 3.13302H8.51146H9.17182C9.17182 3.13302 10.4187 3.13302 10.4187 4.96667C10.4187 6.80033 9.68504 7.06613 8.8538 7.06613H4.04109V3.13302ZM8.93509 14.4936H4.04109V9.78294H9.17152C9.17152 9.78294 11.0298 9.75921 11.0298 12.2037C11.0298 14.242 9.6708 14.4731 8.93509 14.4936ZM25.7181 1.03796H18.4457V3.20862H25.7181V1.03796ZM15.4654 11.2571C15.4654 11.2571 15.4594 4.4856 22.2375 4.4856C29.3716 4.4856 28.3724 12.1361 28.3724 12.1361H19.2398C19.2398 15.411 22.3413 15.2036 22.3413 15.2036C25.2709 15.2036 25.1673 13.3077 25.1673 13.3077H28.2692C28.2692 18.3399 22.2378 17.9952 22.2378 17.9952C15.0008 17.9952 15.4654 11.2571 15.4654 11.2571ZM19.2048 9.78364H24.9947C24.9947 9.78364 25.0294 7.06653 22.3063 7.06683C19.5836 7.06683 19.2048 9.78364 19.2048 9.78364Z"/>
+          <defs>
+          <linearGradient id="paint0_linear_763_572" x1="0.615723" y1="0" x2="17.0443" y2="15.9189" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_763_572" x1="0.615723" y1="0" x2="17.0443" y2="15.9189" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint2_linear_763_572" x1="19.0615" y1="1.03802" x2="20.0414" y2="4.83332" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint3_linear_763_572" x1="19.0615" y1="1.03802" x2="20.0414" y2="4.83332" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint4_linear_763_572" x1="16.0752" y1="4.48562" x2="28.6108" y2="18.3838" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint5_linear_763_572" x1="16.0752" y1="4.48562" x2="28.6108" y2="18.3838" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7270FF"/>
+          <stop offset="1" stop-color="#6002A9"/>
+          </linearGradient>
+          <linearGradient id="paint0_linear_763_520" x1="0.615234" y1="0" x2="15.7915" y2="0.353343" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFA77A"/>
+          <stop offset="1" stop-color="#F2BD34"/>
+          </linearGradient>
+        </svg>    
+          |посмотреть Bēhance
+
+

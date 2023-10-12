@@ -1,0 +1,74 @@
+-
+  howWorkBlockOne = [
+    {
+      animation: "how-work__items initial-hidden",
+      src: "./img/about-me/how-work/chick.png",
+      alt: "Лупа",
+      text: "Задаю много вопросов на старте проекта",
+      textOpacity: "Концетрируюсь на конкретной задаче и исключаю большинство проблем интерфейса до запуска",
+    },
+    {
+      animation: "how-work__items initial-hidden",
+      src: "./img/about-me/how-work/darts.png",
+      alt: "Дартс",
+      text: "Делаю понятно для разработчиков",
+      textOpacity: "Готовлю подробный UI-Kit: показываю все состояния элементов, ошибки, емптистейты",
+    },
+    {
+      animation: "how-work__items initial-hidden",
+      src: "./img/about-me/how-work/rocket.png",
+      alt: "Rocket",
+      text: "Помогаю развивать проект после запуска",
+      textOpacity: "Консультирую команду разработки и делаю дизайн-ревью выполненной работы",
+    },
+  ]
+- 
+  howWorkBlockTwo = [
+    {
+      animation: "how-work__items initial-hidden",
+      srcset: "./img/about-me/how-work/owl.png",
+      alt: "Owl",
+      text: "Всегда на связи в выходные <br> и даже по ночам",
+      textOpacity: "Личная жизнь и отдых для меня важнее работы. При этом я всегда с макбуком под рукой",
+    },
+    {
+      animation: "how-work__items initial-hidden",
+      srcset: "./img/about-me/how-work/lightning.png",
+      alt: "lightning",
+      text: "Быстро вношу изменения",
+      textOpacity: "Использую плагины, компоненты и трушные решения из дизайн-систем",
+    },
+    {
+      animation: "how-work__items initial-hidden",
+      src: "./img/about-me/how-work/camera.png",
+      alt: "Camera",
+      text: "Делаю интерактивные прототипы",
+      textOpacity: "Помогу подготовиться к исследованиям <br> или к презентации продукта",
+    },
+  ]
+-
+  howWorkBlockThree = [{
+    animation: "how-work__items initial-hidden",
+    src: "./img/about-me/how-work/warning.png",
+    alt: "Предупреждение",
+    text: "Не берусь за лэндинги, иллюстрации и иконки",
+    textOpacity: "Фокусируюсь на решении задач пользователя и бизнеса, а не рисовании картинок",
+  }]
+section.how-work 
+  .container
+    .how-work__column
+      .how-work__title.sub-title-line Как работаю
+      .how-work__sub-title.
+        Продукт должен быть не нарисован, а запущен, чтобы им пользовались люди. Для этого я:
+      each dataOne in howWorkBlockOne
+        +howWork-block(dataOne)
+    .how-work__column
+      .how-work__sub-title.
+        Со мной комфортно и <span>продуктивно:</span>
+      each dataTwo in howWorkBlockTwo
+        +howWork-block(dataTwo)
+    .how-work__column
+      .how-work__title.sub-title-line.
+        One more thing...
+      each dataThree in howWorkBlockThree
+        +howWork-block(dataThree)

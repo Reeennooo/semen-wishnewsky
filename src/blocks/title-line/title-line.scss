@@ -1,0 +1,79 @@
+.sub-title-line {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    height: 1px;
+    width: 100vw;
+    @include BgPseudoElement; // Стили под все темы 
+    position: absolute;
+    z-index: -1;
+    bottom: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .3s;
+  }
+}
+
+@media (max-width: $mobile) {
+  .sub-title-line {
+    &::before {
+      bottom: 7px;
+    }
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: $mobile) {
+    .sub-title-line {
+      &::before {
+        bottom: 6px;
+      }
+    }
+  }
+}
+
+.title-line {
+  position: relative;
+
+  &::before {
+    content: "";
+    height: 1px;
+    width: 100vw;
+    @include BgPseudoElement; // Стили под все темы 
+    position: absolute;
+    z-index: -1;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .3s;
+  }
+
+  @media (max-width: $tablet) {
+    &::before {
+      bottom: 12px;
+    }
+  }
+
+  @media (max-width: $mobile-big) {
+    &::before {
+      bottom: 9px;
+    }
+  }
+
+  @media (max-width: 359px) {
+    &::before {
+      bottom: 8px;
+    }
+  }
+}
+
+// .bodyBlack {
+//   & .sub-title-line, .title-line {
+//       &::before {
+//         background: $border-dark;
+//       }
+//   }
+
+// }

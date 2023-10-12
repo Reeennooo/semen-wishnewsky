@@ -1,0 +1,38 @@
+// Widths   420 479 575 640 767 991 1199 1400 
+$mobile-sm: 479px;
+$mobile: 575px;
+$mobile-big: 767px;
+$tablet: 991px;
+$desktop: 1199px;
+
+$grid-spacing: 30px;
+$grid-spacing-sm: 20px;
+
+$base-img: '../img/';
+
+$font-size: 18px;
+$line-height: 1.5;
+// Fonts
+$default-font: 'Stem',
+sans-serif; //400
+$formular-font: 'Formular',
+sans-serif; //400
+$lora-font: 'Lora',
+sans-serif; //700
+$rubik-font: 'Rubik',
+sans-serif; //400
+$additional-font: 'Open Sans',
+sans-serif; //400/700/800
+
+// Colors
+$text-color: #121212;
+$color-error: #E60000;
+$violet: linear-gradient(139.14deg, #7270FF 0%, #6002A9 100%);
+$orange: linear-gradient(91.59deg, #FFA77A 0%, #F2BD34 100%);
+$white-color: #fff;
+$border-silver: #E7E7E7;
+$border-dark: #2A2A2A;
+$br-black: #2F2F2F;
+$black: #121212;
+$blue: #0057ff;
+

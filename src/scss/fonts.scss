@@ -1,0 +1,27 @@
+@mixin fontRuble($f-name, $f-style, $f-weight, $f-url) {
+  @font-face {
+    font-family: $f-name;
+    font-style: $f-style;
+    font-weight: $f-weight;
+    src: url('../fonts/#{$f-url}.ttf') format('truetype');
+  }
+}
+
+@mixin font($f-name, $f-style, $f-weight, $f-url) {
+  @font-face {
+    font-family: $f-name;
+    font-style: $f-style;
+    font-weight: $f-weight;
+    src: url('../fonts/#{$f-url}.woff2') format('woff2'),
+    url('../fonts/#{$f-url}.woff') format('woff'),
+    url('../fonts/#{$f-url}.ttf') format('truetype'),
+    url('../fonts/#{$f-url}.eot'),
+    url('../fonts/#{$f-url}.eot?#iefix') format('embedded-opentype');
+  }
+}
+
+// @include font('Open Sans', normal, 400, 'open-sans/open-sans-v17-latin_cyrillic-regular');
+// @include font('Formular', normal, 400, 'formular/formular');
+// @include font('Lora', normal, 700, 'lora/Lora-Bold');
+// @include font('Stem', italic, 400, 'stemnew/StemItalic');
+@include font('Stem', normal, 400, 'st/Stem-Regular');

@@ -1,0 +1,69 @@
+mixin project-slide(images, title, date, description, Link, status, companyName)
+  .swiper-slide.my-slide
+    .project-slide
+      .project-slide__photo
+        .swiper.project-img-slider
+          .swiper-wrapper
+            each img in images
+              .swiper-slide.project-img-slider__slide
+                img(src=`${img.src}`, alt="Фото проекта")
+        .project-img-slider__navigation
+          .swiper-button-prev.project-img-slider__prev
+            <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 0L0 7.78378L12 16V0Z"/>
+              <linearGradient id="paint0_linear_247_1647" x1="12" y1="16" x2="-3.75082" y2="5.78154" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7270FF"/>
+              <stop offset="1" stop-color="#6002A9"/>
+              </linearGradient>
+              <linearGradient id="paint0_linear_251_876" x1="12" y1="16" x2="11.3918" y2="-0.421919" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA77A"/>
+              <stop offset="1" stop-color="#F2BD34"/>
+              </linearGradient>
+            </svg>
+          .swiper-pagination.project-img-slider__pagination
+          .swiper-button-next.project-img-slider__next
+            <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0L12 7.78378L0 16V0Z"/>
+              <linearGradient id="paint0_linear_247_1647" x1="12" y1="16" x2="-3.75082" y2="5.78154" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7270FF"/>
+              <stop offset="1" stop-color="#6002A9"/>
+              </linearGradient>
+              <linearGradient id="paint0_linear_251_876" x1="12" y1="16" x2="11.3918" y2="-0.421919" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA77A"/>
+              <stop offset="1" stop-color="#F2BD34"/>
+              </linearGradient>
+            </svg>
+      .project-slide__information
+        .project-slide__info-text
+          h1.project-slide__title!=title
+          p.project-slide__date!=date
+          p.project-slide__description!=description
+          .project-slide__characteristic
+            .project-slide__subtitle Ссылка
+            a(href=Link.href class="project-slide__link")!=Link.name
+          .project-slide__characteristic
+            .project-slide__subtitle Статус
+            p!=status
+          .project-slide__characteristic
+            .project-slide__subtitle Работал от имени
+            p!=companyName
+        .modal-project__back
+          p Вернуться к списку проектов
+        //- .project-slide__navigation
+        //-   .swiper-button-prev.project-slide__prev
+        //-     <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+        //-       <path d="M12 0L0 7.78378L12 16V0Z" fill="url(#paint0_linear_247_1647)"/>
+        //-       <linearGradient id="paint0_linear_247_1647" x1="12" y1="16" x2="-3.75082" y2="5.78154" gradientUnits="userSpaceOnUse">
+        //-       <stop stop-color="#7270FF"/>
+        //-       <stop offset="1" stop-color="#6002A9"/>
+        //-       </linearGradient>
+        //-       <linearGradient id="paint0_linear_251_876" x1="12" y1="16" x2="11.3918" y2="-0.421919" gradientUnits="userSpaceOnUse">
+        //-       <stop stop-color="#FFA77A"/>
+        //-       <stop offset="1" stop-color="#F2BD34"/>
+        //-       </linearGradient>
+        //-     </svg>
+        //-   p Листать проекты
+        //-   .swiper-button-next.project-slide__next
+        //-     <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+        //-       <path d="M0 0L12 7.78378L0 16V0Z" fill="url(#paint0_linear_247_1647)"/>
+        //-     </svg>
